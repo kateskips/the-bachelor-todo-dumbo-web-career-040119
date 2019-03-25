@@ -1,10 +1,28 @@
+require 'pry'
 def get_first_name_of_season_winner(data, season)
-  # code here
+  data.each do |seasons, contestants_data|
+    contestants_data.each do |each_contestant|
+      if seasons == season
+        return each_contestant["name"].split[0]
+      end
+    end
+  end
 end
+   
+
 
 def get_contestant_name(data, occupation)
-  # code here
+  data.each do |seasons, contestants_data|
+    contestants_data.each do |each_contestant|
+      each_contestant.each do |attribute, value|
+        if attribute == occupation
+          return each_contestant[:name]
+        end
+      end
+    end
+  end
 end
+
 
 def count_contestants_by_hometown(data, hometown)
   # code here
